@@ -8,7 +8,7 @@ var port = process.env.PORT || 8000;
 
 app.get('/', function (request, response) {
     
-    var ip = request.ip;
+    var ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
     var language = JSON.stringify(request.headers["accept-language"]);
     var os = JSON.stringify(request.headers["user-agent"]);
     
