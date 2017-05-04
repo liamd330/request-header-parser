@@ -14,8 +14,8 @@ app.get('/', function (request, response) {
     
     finalObj = {
         "ip" : ip,
-        "language" : language,
-        "operating system" : os
+        "language" : language.slice(1, 6),
+        "operating system" : os.slice(os.indexOf("(") + 1, os.indexOf(")"))
     }
 
         response.end(JSON.stringify(finalObj));
